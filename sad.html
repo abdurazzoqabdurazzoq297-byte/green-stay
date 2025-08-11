@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Green Stay - Eco Friendly Coworking</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        /* Root colors */
+        :root {
+            --green: #4CAF50;
+            --green-dark: #388E3C;
+            --green-light: #A5D6A7;
+            --white: #ffffff;
+            --gray-dark: #2E2E2E;
+            --gray-light: #F7F9F8;
+            --shadow: rgba(0, 0, 0, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: var(--gray-dark);
+            margin: 0;
+        }
+
+        /* NAVBAR */
+        nav {
+            background: var(--green);
+            color: var(--white);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 10000;
+            box-shadow: 0 2px 6px var(--shadow);
+        }
+
+        nav .logo {
+            font-weight: 700;
+            font-size: 1.8rem;
+            letter-spacing: 2px;
+            cursor: pointer;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 0.4rem 0.6rem;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover,
+        nav ul li a:focus {
+            background-color: var(--green-dark);
+            outline: none;
+        }
+
+        nav .btn-register {
+            background: var(--white);
+            color: var(--green);
+            border: none;
+            font-weight: 700;
+            font-size: 1rem;
+            padding: 0.5rem 1.2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav .btn-register:hover,
+        nav .btn-register:focus {
+            background-color: var(--green-light);
+            color: var(--green-dark);
+            outline: none;
+        }
+
+        /* Responsive Navbar (hamburger) */
+        @media (max-width: 768px) {
+            nav {
+                flex-wrap: wrap;
+                padding: 1rem;
+            }
+
+            nav ul {
+                width: 100%;
+                flex-direction: column;
+                gap: 1rem;
+                margin-top: 0.5rem;
+                display: none;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: block;
+                cursor: pointer;
+                width: 30px;
+                height: 25px;
+                position: relative;
+            }
+
+            .hamburger span {
+                background: white;
+                position: absolute;
+                height: 3px;
+                width: 100%;
+                border-radius: 2px;
+                transition: all 0.3s ease;
+            }
+
+            .hamburger span:nth-child(1) {
+                top: 0;
+            }
+
+            .hamburger span:nth-child(2) {
+                top: 11px;
+            }
+
+            .hamburger span:nth-child(3) {
+                top: 22px;
+            }
+
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg);
+                top: 11px;
+            }
+
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg);
+                top: 11px;
+            }
+        }
+
+        /* MAIN CONTENT */
+        main {
+            max-width: 1100px;
+            margin: 2rem auto 4rem;
+            padding: 0 1rem;
+            background-color: rgba(247, 249, 248, 0.85);
+            border-radius: 12px;
+            box-shadow: 0 8px 24px var(--shadow);
+        }
+
+        h2.section-title {
+            color: var(--green-dark);
+            border-bottom: 3px solid var(--green);
+            padding-bottom: 0.4rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            font-size: 2rem;
+        }
+
+        /* Home Section */
+        #home {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem 1rem;
+            text-align: center;
+            color: var(--green-dark);
+        }
+
+        #home h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 900;
+        }
+
+        #home p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+            color: #2f4f2f;
+            font-weight: 500;
+        }
+
+        #home .btn-primary {
+            background-color: var(--green);
+            color: var(--white);
+            border: none;
+            padding: 0.8rem 2rem;
+            font-size: 1.2rem;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 700;
+            box-shadow: 0 6px 15px rgba(0, 128, 0, 0.4);
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        #home .btn-primary:hover,
+        #home .btn-primary:focus {
+            background-color: var(--green-dark);
+            outline: none;
+        }
+
+        /* Eco-Friendly zonalar */
+        .eco-zones {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .zone-card {
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 6px 15px var(--shadow);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+
+        .zone-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .zone-card img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 12px var(--shadow);
+        }
+
+        .zone-card h3 {
+            margin: 0 0 0.5rem 0;
+            color: var(--green-dark);
+        }
+
+        .zone-card p {
+            text-align: center;
+            font-size: 1rem;
+            line-height: 1.4;
+            color: #555;
+        }
+
+        /* Paketlar */
+        .packages {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .package-card {
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 6px 15px var(--shadow);
+            padding: 2rem 1.5rem;
+            width: 280px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .package-card:hover {
+            box-shadow: 0 10px 25px var(--shadow);
+        }
+
+        .package-card h3 {
+            color: var(--green-dark);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .package-card ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .package-card ul li {
+            padding-left: 1.2rem;
+            position: relative;
+            margin-bottom: 0.8rem;
+            color: #444;
+        }
+
+        .package-card ul li::before {
+            content: "✔";
+            color: var(--green);
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-weight: 700;
+        }
+
+        .package-card .price {
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: var(--green-dark);
+        }
+
+        /* Xarita bo‘limi */
+        #map-section p {
+            max-width: 600px;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        #map {
+            width: 100%;
+            height: 420px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 6px 15px var(--shadow);
+        }
+
+        #map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--green-dark);
+            color: var(--white);
+            padding: 2rem 1rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .social-links {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .social-links a svg {
+            fill: var(--white);
+            width: 24px;
+            height: 24px;
+            transition: fill 0.3s ease;
+        }
+
+        .social-links a:hover svg,
+        .social-links a:focus svg {
+            fill: var(--green-light);
+            outline: none;
+        }
+
+        /* REGISTER MODAL */
+        #register-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            justify-content: center;
+            align-items: center;
+            z-index: 15000;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        #register-modal.active {
+            display: flex;
+        }
+
+        #register-modal .modal-content {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 8px 24px var(--shadow);
+            position: relative;
+        }
+
+        #register-modal h2 {
+            color: var(--green-dark);
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+
+        #register-modal label {
+            display: block;
+            margin-bottom: 0.4rem;
+            font-weight: 500;
+            color: #333;
+        }
+
+        #register-modal input {
+            width: 100%;
+            padding: 0.6rem 0.8rem;
+            margin-bottom: 1.2rem;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        #register-modal input:focus {
+            border-color: var(--green);
+            outline: none;
+        }
+
+        #register-modal button[type="submit"] {
+            background-color: var(--green);
+            color: var(--white);
+            border: none;
+            padding: 0.8rem 1.8rem;
+            border-radius: 25px;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        #register-modal button[type="submit"]:hover,
+        #register-modal button[type="submit"]:focus {
+            background-color: var(--green-dark);
+            outline: none;
+        }
+
+        #register-modal .btn-cancel {
+            background: #ccc;
+            margin-top: 0.6rem;
+            width: 100%;
+            border: none;
+            padding: 0.7rem 1.8rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        #register-modal .btn-cancel:hover,
+        #register-modal .btn-cancel:focus {
+            background: #999;
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo" tabindex="0">Green Stay</div>
+        <div class="hamburger" aria-label="Menuni ochish" role="button" tabindex="0">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul>
+            <li><a href="#home" tabindex="0">Bosh sahifa</a></li>
+            <li><a href="#eco-friendly-zones" tabindex="0">Eco-Friendly zonalar</a></li>
+            <li><a href="#packages" tabindex="0">Paketlar</a></li>
+            <li><a href="#map-section" tabindex="0">Manzil</a></li>
+            <li><button class="btn-register" tabindex="0" aria-haspopup="dialog">Ro‘yxatdan o‘tish</button></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Home -->
+        <section id="home" tabindex="0">
+            <h1>Green Stay</h1>
+            <p>Eco-Friendly Coworking xizmati orqali tabiat bilan uyg‘un ishlang va yarating!</p>
+            <a href="#eco-friendly-zones" class="btn-primary" tabindex="0">Ko‘proq bilish</a>
+        </section>
+
+        <!-- Eco-Friendly zonalar -->
+        <section id="eco-friendly-zones" tabindex="0">
+            <h2 class="section-title">Eco-Friendly zonalar</h2>
+            <div class="eco-zones">
+                <article class="zone-card" tabindex="0">
+                    <img src="https://images.unsplash.com/photo-1520880867055-1e30d1cb001c?auto=format&fit=crop&w=600&q=80"
+                        alt="Yashil o‘rmon" />
+                    <h3>Yashil o‘rmon</h3>
+                    <p>Tabiat bilan uyg‘unlikda, o‘rmon ichida joylashgan ofis zonasi.</p>
+                </article>
+                <article class="zone-card" tabindex="0">
+                    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80"
+                        alt="ochiq havo" />
+                    <h3>ochiq havo</h3>
+                    <p>Yoz faslida ochiq havoda ishlash imkoniyati.</p>
+                </article>
+                <article class="zone-card" tabindex="0">
+                    <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=600&q=80"
+                        alt="Iqlim nazoratli xona">
+                    <h3>Iqlim nazoratli xona</h3>
+                    <p>Quyoshdan himoyalangan, zamonaviy iqlim nazorati mavjud xona.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Paketlar -->
+        <section id="packages" tabindex="0">
+            <h2 class="section-title">Paketlar</h2>
+            <div class="packages">
+                <div class="package-card" tabindex="0">
+                    <h3>Kunlik</h3>
+                    <ul>
+                        <li>ofis maydoni</li>
+                        <li>wife</li>
+                        <li>choy va qahva</li>
+                    </ul>
+                    <div class="price">50 000 so'm / kun</div>
+                </div>
+                <div class="package-card" tabindex="0">
+                    <h3>Oylik</h3>
+                    <ul>
+                        <li>24/7</li>
+                        <li>Shaxsiy ish joyi </li>
+                        <li> Konferens-zona </li>
+                    </ul>
+                    <div class="price">1 200 000 so'm / hafta</div>
+                </div>
+                <div class="package-card" tabindex="0">
+                    <h3>Yillik</h3>
+                    <ul>
+                        <li>erkin jadval</li>
+                        <li>Personal treninglar </li>
+                        <li>Qo'shimcha imtiyozlar</li>
+                    </ul>
+                    <div class="price">12 000 000 so'm / oy</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Xarita -->
+        <section id="map-section" tabindex="0">
+            <h2 class="section-title">Bizning Manzil</h2>
+            <p>O‘zbekiston, Toshkent, Yashnobod tumani, Ko‘chmas Mulk Ko‘rgazmasi yonida.</p>
+            <div id="map" aria-label="Green Stay joylashuvi xaritasi">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2995.817892563455!2d69.32157331565554!3d41.26278090835278!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8c59a4429d3d%3A0x31b70bba04f32524!2sTashkent%20Exhibition%20Center!5e0!3m2!1suz!2s!4v1691640000000!5m2!1suz!2s"
+                    width="600" height="420" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade" title="Xarita">
+                </iframe>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div>&copy; 2025 Green Stay. Barcha huquqlar himoyalangan.</div>
+        <div class="social-links" aria-label="Ijtimoiy tarmoqlar">
+            <a href="#" aria-label="Facebook" tabindex="0">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M22 12c0-5.514-4.486-10-10-10S2 6.486 2 12c0 4.991 3.657 9.128 8.438 9.879v-6.987h-2.54v-2.892h2.54V9.845c0-2.507 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.464h-1.26c-1.243 0-1.63.771-1.63 1.562v1.875h2.773l-.443 2.892h-2.33v6.987C18.343 21.128 22 16.991 22 12z" />
+                </svg>
+            </a>
+            <a href="#" aria-label="Instagram" tabindex="0">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2zm0 2A3.75 3.75 0 004 7.75v8.5A3.75 3.75 0 007.75 20h8.5a3.75 3.75 0 003.75-3.75v-8.5A3.75 3.75 0 0016.25 4zm8.5 1.75a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zM12 7a5 5 0 110 10 5 5 0 010-10zm0 2a3 3 0 100 6 3 3 0 000-6z" />
+                </svg>
+            </a>
+            <a href="#" aria-label="Telegram" tabindex="0">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M9.997 14.876l-.005.007-1.52 5.492c.217 0 .311-.094.424-.206l3.257-3.074 6.758 4.952c1.23.68 2.11.332 2.44-1.122.315-1.326 2.123-10.008 2.396-11.228.18-.828-.287-1.15-.985-.933l-14.235 5.217c-1.044.381-1.031.923-.18 1.17l4.444 1.385z" />
+                </svg>
+            </a>
+        </div>
+    </footer>
+
+    <!-- Register Modal -->
+    <div id="register-modal" role="dialog" aria-modal="true" aria-labelledby="register-title"
+        aria-describedby="register-desc">
+        <div class="modal-content">
+            <h2 id="register-title">Ro‘yxatdan o‘tish</h2>
+            <form id="register-form" novalidate>
+                <label for="name">Ismingiz:</label>
+                <input type="text" id="name" name="name" required placeholder="Ismingizni kiriting"
+                    autocomplete="name" />
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required placeholder="Email manzilingiz"
+                    autocomplete="email" />
+
+                <label for="password">Parol:</label>
+                <input type="password" id="password" name="password" required minlength="6"
+                    placeholder="Kamida 6 ta belgidan" autocomplete="new-password" />
+
+                <button type="submit">Ro‘yxatdan o‘tish</button>
+                <button type="button" class="btn-cancel">Bekor qilish</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Navbar hamburger toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('nav ul');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        hamburger.addEventListener('keydown', (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                hamburger.click();
+            }
+        });
+
+        // Register modal logic
+        const registerBtn = document.querySelector('.btn-register');
+        const modal = document.getElementById('register-modal');
+        const cancelBtn = modal.querySelector('.btn-cancel');
+        const form = document.getElementById('register-form');
+
+        // Open modal
+        registerBtn.addEventListener('click', () => {
+            modal.classList.add('active');
+            form.name.focus();
+        });
+
+        // Close modal function
+        function closeModal() {
+            modal.classList.remove('active');
+            registerBtn.focus();
+            form.reset();
+        }
+
+        cancelBtn.addEventListener('click', closeModal);
+
+        // Close modal on ESC key
+        window.addEventListener('keydown', (e) => {
+            if (e.key === "Escape" && modal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+
+        // Form validation and submission
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            // Example: you can replace this with actual registration logic
+            alert(`Ro‘yxatdan o‘tish muvaffaqiyatli! Ismingiz: ${form.name.value}`);
+
+            closeModal();
+        });
+    </script>
+</body>
+
+</html>
